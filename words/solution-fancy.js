@@ -10,6 +10,7 @@
 
 // This will store ALL the words we will test in an array
 var _words = null;
+var _count = 0;
 
 // This will store the count of words that pass the test of 'one hundred points'
 var _numWordsWorth100Points = 0;
@@ -61,6 +62,33 @@ function generateScores() {
         }
     }
     console.dir(_resultArray);
+}
+
+function generateScoresWithTimeout() {
+    var nextWord = _words[_count];
+    var score = calculateWordScore(nextWord);
+
+    // Test whether score is equal to 100
+    if (score == 100) {
+        _numWordsWorth100Points += 1;
+        _resultArray.push(nextWord);
+        document.getElementsByClassName('current-word')[0].innerHTML = nextWord;
+        console.log('Found word: ', nextWord);
+
+    }
+
+    _count++;
+
+    if (_count < _words.length) {
+        window.setTimeout(function() {
+            generateScoresWithTimeout();
+        }, 200);
+    }
+    console.log("count");
+}
+
+function logResults(json) {
+    console.log(json);
 }
 
 /**
