@@ -73,18 +73,20 @@ function generateScoresWithTimeout() {
         _numWordsWorth100Points += 1;
         _resultArray.push(nextWord);
         document.getElementsByClassName('current-word')[0].innerHTML = nextWord;
+        document.getElementsByClassName('num-100-point-words-value')[0].innerHTML = _numWordsWorth100Points;
+        var appendWordToListVal = nextWord + ", ";
+        document.getElementsByClassName('word-list')[0].innerHTML += appendWordToListVal;
         console.log('Found word: ', nextWord);
-
     }
 
     _count++;
+    document.getElementsByClassName('num-words-value')[0].innerHTML = _count;
 
     if (_count < _words.length) {
         window.setTimeout(function() {
             generateScoresWithTimeout();
         }, 200);
     }
-    console.log("count");
 }
 
 function logResults(json) {

@@ -1,6 +1,7 @@
 body {
     padding: 0;
     margin: 0;
+    background: rgb(212, 78, 12);
 }
 .div-section {
     font-size: 2em;
@@ -14,6 +15,18 @@ body {
 .div-section-flexbox {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    background: rgb(242, 141, 6);
+}
+.div-section-flexitem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 40px;
+    padding: 20px 0;
+    font-size: 4em;
+    font-weight: bold;
+    color: rgb(83, 53, 12)
 }
 .main-header {
     color: rgb(6, 136, 149);
@@ -23,10 +36,18 @@ body {
     height: 300px;
     line-height: 200px;
 }
+.word-list {
+    background: rgb(0, 188, 212);
+    color: #31708f;
+    padding: 20px 0;
+}
 .current-word {
     color: rgb(238, 36, 170);
     background: rgb(108, 4, 73    );
 }
 .btn-section {
     background: #047fa3;
+}
+.legend {
+    font-size: 20px;
 }
