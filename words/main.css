@@ -52,3 +52,16 @@ body {
 .legend {
     font-size: 20px;
 }
+.slider-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px 0;
+}
+.slider.slider-horizontal {
+    width: 630px;
+}
+.slider-handle {
+    background-color: #f0ad4e;
+    background-image: none;
+}

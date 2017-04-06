@@ -10,7 +10,12 @@
 
 // This will store ALL the words we will test in an array
 var _words = null;
+
+// The count of words processed
 var _count = 0;
+
+// Speed is the rate at which words are processed
+var _speed = 1000;
 
 // This will store the count of words that pass the test of 'one hundred points'
 var _numWordsWorth100Points = 0;
@@ -85,12 +90,8 @@ function generateScoresWithTimeout() {
     if (_count < _words.length) {
         window.setTimeout(function() {
             generateScoresWithTimeout();
-        }, 50);
+        }, _speed);
     }
-}
-
-function logResults(json) {
-    console.log(json);
 }
 
 /**
@@ -157,6 +158,15 @@ function loadJSON(path, success, error) {
  */
 window.onload = function() {
     console.log('Loaded page...');
+
+    // Slider Without JQuery
+    var slider = new Slider('#ex1', {
+        formatter: function(value) {
+            // Change the speed as a result of
+            _speed = value;
+        }
+    });
+
     loadJSON('words.json', function(data) {
         console.dir(data);
         _words = data;
