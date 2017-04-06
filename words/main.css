@@ -12,6 +12,12 @@ body {
     color: rgb(238, 36, 170);      /* override */
     background: rgb(55, 8, 39);    /* override */
 }
+.div-section-flexbox-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+}
 .div-section-flexbox {
     display: flex;
     flex-direction: row;
@@ -31,15 +37,23 @@ body {
 .main-header {
     color: rgb(6, 136, 149);
     background: rgb(2, 51, 56);
+
+}
+.header-title {
+    font-family: Roboto, sans-serif;
     font-size: 6em;
     font-weight: bold;
-    height: 300px;
-    line-height: 200px;
+}
+.header-description {
+    font-family: Roboto, sans-serif;
+    font-style: italic;
+    width: 50%;
+    color: rgb(36, 235, 255);
 }
 .word-list {
     background: rgb(0, 188, 212);
     color: #31708f;
-    padding: 20px;
+    padding: 40px;
     font-size: 8px;
 }
 .current-word {
@@ -47,7 +61,8 @@ body {
     background: rgb(108, 4, 73    );
 }
 .btn-section {
-    background: #047fa3;
+    background: #292b2c;
+    padding: 20px 0;
 }
 .legend {
     font-size: 20px;
@@ -64,4 +79,14 @@ body {
 .slider-handle {
     background-color: #f0ad4e;
     background-image: none;
+}
+.btn-play {
+    padding: 10px 80px;
+    font-size: 150%;
+    background: #dc25c4;
+    border-color: #dc25c4;
+}
+.btn-info:hover {
+    background: #980f86;
+    border-color: #980f86;
 }

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>100 Point Words</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="tether.min.css" />
     <link rel="stylesheet" href="bootstrap.min.css" />
     <link rel="stylesheet" href="bootstrap-slider.min.css" />
@@ -17,18 +19,27 @@
 </head>
 <body>
 
-    <div class="div-section main-header">100 Point Words</div>
-
-
-    <div class="totals">
-        <span class="num-words-processed"></span><span class="num-100-point-words"></span>
+    <div class="div-section-flexbox-main main-header">
+        <h1 class="header-title">100 Point Words</h1>
+        <p class="header-description">
+            STEM based example of integrating coding with a simple Maths (and English!) exercise. The problem is as follows:
+            Each letter of the alphabet is assigned a value (scrabble value * 5). The challenge is to come up with as many words as possible that
+            add up to 100 points. Points are as follows:<br/><br/>
+            5 point: A, E, I, O, L, N, R, S, T, U;
+            10 points: D, G;
+            15 points: B, C, M, P;
+            20 points: F, H, V, W, Y;
+            25 points: K;
+            40 points: J, X;
+            50 points: Q, Z
+        </p>
     </div>
     <div class="div-section current-word">Words</div>
     <div class="wordlist">
         <!-- Place holder -->
     </div>
-    <div class="div-section btn-section">
-        <button class="btn btn-info" onclick="generateScoresWithTimeout()">Generate Scores</button>
+    <div class="div-section-flexbox btn-section">
+        <button class="btn btn-info btn-play" onclick="toggleExecutionState()"><i class="fa fa-play"></i></button>
     </div>
     <div class="div-section-flexbox">
         <div class="div-section-flexitem num-words-tested">
