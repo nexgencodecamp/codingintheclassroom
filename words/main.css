@@ -39,7 +39,8 @@ body {
 .word-list {
     background: rgb(0, 188, 212);
     color: #31708f;
-    padding: 20px 0;
+    padding: 20px;
+    font-size: 8px;
 }
 .current-word {
     color: rgb(238, 36, 170);
