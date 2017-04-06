@@ -85,7 +85,7 @@ function generateScoresWithTimeout() {
     if (_count < _words.length) {
         window.setTimeout(function() {
             generateScoresWithTimeout();
-        }, 200);
+        }, 50);
     }
 }
 
