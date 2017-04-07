@@ -48,6 +48,7 @@ var _letterScores = {
 }
 
 function generateScores() {
+
     // Loop around each word
 
     // Get next word
@@ -60,6 +61,8 @@ function generateScores() {
     // Push the nextWord into the resultArray ie. we want to store all the words we find that are worth 100 points
 
     // Finally print the _resultArray to the console
+
+    // FOR EXTRA FUN - ADD A TIMER TO SEE HOW LONG IT TAKES TO PROCESS 275,000 WORDS
 }
 
 /**
