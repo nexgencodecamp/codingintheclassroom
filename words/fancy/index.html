@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>100 Point Words</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="lib/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/tether.min.css" />
+    <link rel="stylesheet" href="lib/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/bootstrap-slider.min.css" />
+    <link rel="stylesheet" href="main.css" />
+    <script src="lib/jquery-3.1.1.min.js"></script>
+    <script src="lib/tether.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/bootstrap-slider.min.js"></script>
+    <script src="solution-fancy.js"></script>
+</head>
+<body>
+
+    <div class="div-section-flexbox-main main-header">
+        <h1 class="header-title">100 Point Words</h1>
+        <p class="header-description">
+            STEM based example of integrating coding with a simple Maths (and English!) exercise. The problem is as follows:
+            Each letter of the alphabet is assigned a value (scrabble value * 5). The challenge is to come up with as many words as possible that
+            add up to 100 points. Points are as follows:<br/><br/>
+            5 point: A, E, I, O, L, N, R, S, T, U;
+            10 points: D, G;
+            15 points: B, C, M, P;
+            20 points: F, H, V, W, Y;
+            25 points: K;
+            40 points: J, X;
+            50 points: Q, Z
+        </p>
+    </div>
+    <div class="div-section current-word">Words</div>
+    <div class="wordlist">
+        <!-- Place holder -->
+    </div>
+    <div class="div-section-flexbox btn-section">
+        <button class="btn btn-info btn-play" onclick="toggleExecutionState()"><i class="fa fa-play"></i></button>
+    </div>
+    <div class="div-section-flexbox">
+        <div class="div-section-flexitem num-words-tested">
+            <div class="legend">
+                num words tested
+            </div>
+            <div class="num-words-value">
+                0
+            </div>
+        </div>
+        <div class="div-section-flexitem num-100-words">
+            <div class="legend">
+                100 point words
+            </div>
+            <div class="num-100-point-words-value">
+                0
+            </div>
+        </div>
+    </div>
+    <div class="div-section-flexbox word-list"></div>
+    <div class="slider-container">
+        <input id="ex1"
+            data-slider-id="ex1Slider"
+            type="text"
+            data-slider-min="0"
+            data-slider-max="2000"
+            data-slider-step="10"
+            data-slider-value="1000" />
+    </div>
+
+</body>
+</html>

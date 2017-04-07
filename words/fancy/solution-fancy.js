@@ -11,11 +11,20 @@
 // This will store ALL the words we will test in an array
 var _words = null;
 
+// The count of words processed
+var _count = 0;
+
+// Speed is the rate at which words are processed
+var _speed = 1000;
+
 // This will store the count of words that pass the test of 'one hundred points'
 var _numWordsWorth100Points = 0;
 
 // This array will store the ACTUAL WORDS that pass the hundred point test
 var _resultArray = [];
+
+// Flag that toggles execution of processing
+var _executionPaused = true;
 
 // This is the Object that holds the point values of each letter so that our code can 'score' each word
 var _letterScores = {
@@ -47,20 +56,46 @@ var _letterScores = {
     "Z": 50
 }
 
-function generateScores() {
-    // Loop around each word
-    for (var i = 0; i < _words.length; i++) {
-        // Get next word
-        var nextWord = _words[i];
-        var score = calculateWordScore(nextWord);
+function toggleExecutionState() {
+    _executionPaused = !_executionPaused;
 
-        // Test whether score is equal to 100
-        if (score == 100) {
-            _numWordsWorth100Points += 1;
-            _resultArray.push(nextWord);
-        }
+    if (document.getElementsByClassName('fa-play')[0] !== undefined) {
+        document.getElementsByClassName('fa-play')[0].className = "fa fa-pause";
+        // Start the processing
+        generateScoresWithTimeout()
+    } else {
+        document.getElementsByClassName('fa-pause')[0].className = "fa fa-play";
+        // Pause the process
     }
-    console.dir(_resultArray);
+}
+
+function generateScoresWithTimeout() {
+    var nextWord = _words[_count];
+    var score = calculateWordScore(nextWord);
+
+    // Exit if we are pausing execution
+    if (_executionPaused)
+        return; // Change icon to pause and stop the execution
+
+    // Test whether score is equal to 100
+    if (score == 100) {
+        _numWordsWorth100Points += 1;
+        _resultArray.push(nextWord);
+        document.getElementsByClassName('current-word')[0].innerHTML = nextWord;
+        document.getElementsByClassName('num-100-point-words-value')[0].innerHTML = _numWordsWorth100Points;
+        var appendWordToListVal = nextWord + ", ";
+        document.getElementsByClassName('word-list')[0].innerHTML += appendWordToListVal;
+        console.log('Found word: ', nextWord);
+    }
+
+    _count++;
+    document.getElementsByClassName('num-words-value')[0].innerHTML = _count;
+
+    if (_count < _words.length) {
+        window.setTimeout(function() {
+            generateScoresWithTimeout();
+        }, _speed);
+    }
 }
 
 /**
@@ -127,7 +162,16 @@ function loadJSON(path, success, error) {
  */
 window.onload = function() {
     console.log('Loaded page...');
-    loadJSON('words.json', function(data) {
+
+    // Slider Without JQuery
+    var slider = new Slider('#ex1', {
+        formatter: function(value) {
+            // Change the speed as a result of
+            _speed = value;
+        }
+    });
+
+    loadJSON('data/words.json', function(data) {
         console.dir(data);
         _words = data;
     }, function(xhr) {

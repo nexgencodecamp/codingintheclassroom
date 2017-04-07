@@ -49,18 +49,17 @@ var _letterScores = {
 
 function generateScores() {
     // Loop around each word
-    for (var i = 0; i < _words.length; i++) {
-        // Get next word
-        var nextWord = _words[i];
-        var score = calculateWordScore(nextWord);
 
-        // Test whether score is equal to 100
-        if (score == 100) {
-            _numWordsWorth100Points += 1;
-            _resultArray.push(nextWord);
-        }
-    }
-    console.dir(_resultArray);
+    // Get next word
+
+    // Call the calculateWordScore function with the nextWord as a parameter
+
+    // Test whether score is equal to 100
+    // Increment _numWordsWorth100Points
+
+    // Push the nextWord into the resultArray ie. we want to store all the words we find that are worth 100 points
+
+    // Finally print the _resultArray to the console
 }
 
 /**
@@ -110,14 +109,32 @@ function loadJSON(path, success, error) {
                 if (success)
                     success(JSON.parse(xhr.responseText));
                 }
-            else {
-                if (error)
-                    error(xhr);
-                }
-            }
+            } else {
+            // if (error)
+            //     error(xhr);
+            // }
+        }
     };
     xhr.open("GET", path, true);
     xhr.send();
+}
+
+function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+    f = files[0];
+    var reader = new FileReader();
+
+    // Closure to capture the file information.
+    reader.onload = (function(theFile) {
+        return function(e) {
+            // Render thumbnail.
+            _words = JSON.parse(e.target.result);
+            console.log('Loaded file: ', _words);
+        };
+    })(f);
+
+    // Read in the image file as a data URL.
+    reader.readAsText(f);
 }
 
 /**
@@ -127,10 +144,17 @@ function loadJSON(path, success, error) {
  */
 window.onload = function() {
     console.log('Loaded page...');
-    loadJSON('words.json', function(data) {
-        console.dir(data);
-        _words = data;
-    }, function(xhr) {
-        console.error(xhr);
-    });
+
+    // Test whether we are using the http:// or file:// protocol as AJAX won't work for files
+    if (window.location.href.includes('file://')) {
+        console.log('Sorry - you need to find some other way of loading the JSON file!');
+        document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    } else {
+        loadJSON('../data/words.json', function(data) {
+            console.dir(data);
+            _words = data;
+        }, function(xhr) {
+            console.error(xhr);
+        });
+    }
 }
