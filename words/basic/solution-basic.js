@@ -56,9 +56,8 @@ function generateScores() {
     // Call the calculateWordScore function with the nextWord as a parameter
 
     // Test whether score is equal to 100
-    // Increment _numWordsWorth100Points
-
-    // Push the nextWord into the resultArray ie. we want to store all the words we find that are worth 100 points
+        // Increment _numWordsWorth100Points
+        // Push the nextWord into the resultArray ie. we want to store all the words we find that are worth 100 points
 
     // Finally print the _resultArray to the console
 

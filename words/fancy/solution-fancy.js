@@ -171,7 +171,7 @@ window.onload = function() {
         }
     });
 
-    loadJSON('data/words.json', function(data) {
+    loadJSON('../data/words.json', function(data) {
         console.dir(data);
         _words = data;
     }, function(xhr) {
